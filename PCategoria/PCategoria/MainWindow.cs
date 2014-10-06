@@ -59,6 +59,7 @@ public partial class MainWindow: Gtk.Window
 		tabla.Selection.GetSelected (out buscador);
 		object id = campos.GetValue (buscador,0);
 		object nombre = campos.GetValue (buscador,1);
+
 		Console.WriteLine ("OnDeleteActionActivated id={0} nombre={1}",id,nombre);
 
 	}

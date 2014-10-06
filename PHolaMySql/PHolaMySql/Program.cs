@@ -144,7 +144,6 @@ namespace PHolaMySql
 					sentenciaSQL.Parameters.AddWithValue(nombreCampo[campo].ToString(),valor[campo]);
 				}
 				sentenciaSQL.Parameters.AddWithValue(nombreCampo[campo].ToString(),valor[campo]);
-	
 				try {
 					Console.WriteLine(insert);
 					sentenciaSQL.ExecuteNonQuery();
