@@ -7,21 +7,16 @@ namespace PCategoria
 {
 	public partial class MainWindow: Gtk.Window
 	{
-		private static MySqlConnection conexion;
-		private static string Usuario = "root";
-		private static string Password = "sistemas";
-		private static string ubicacion = "localhost";
 		public MainWindow () : base(Gtk.WindowType.Toplevel)
 		{
 			Build ();
 		}
 		private void obtenerConexion() {
 			try {
+				App.Instance.MysqlConnection.Open();
 
-				conexion = new MySqlConnection ("Data Source="+ubicacion+";User Id="+Usuario+";Password="+Password);
-				conexion.Open ();
 			} catch (MySqlException e) {
-				Console.WriteLine("Usuario:"+Usuario+"Password: "+Password );
+				Console.WriteLine("Usuario:"+App.Instance.Usuario+"Password: "+App.Instance.Password );
 				MessageDialog error = new MessageDialog (
 					this,DialogFlags.Modal,
 					MessageType.Error,
@@ -35,18 +30,21 @@ namespace PCategoria
 					Console.WriteLine ();
 					error.Destroy ();
 				}
-				MySQL ventanaMysql = new MySQL();
-				listar ();
 			}
-		}
-		private void listar() {
-			MySqlCommand sentenciaSQL = new MySqlCommand ("sp_databases");
-			MySqlDataReader Lector = sentenciaSQL.ExecuteReader ();
+			MySQL ventanaMysql = new MySQL();
+
+			ventanaMysql.listarBaseDatos ();
+
+			ventanaMysql.Show ();
 		}
 		protected void conecta (object sender, EventArgs e)
 		{
-			Usuario = entryUsuario.Text;
-			Password = entryPassword.Text;
+			Console.WriteLine (entryUsuario.Text+entryPassword.Text);
+
+			App.Instance.Usuario = entryUsuario.Text;
+			App.Instance.Password = entryPassword.Text;
+			//Console.ReadLine();
+
 			obtenerConexion ();
 		}
 	}
