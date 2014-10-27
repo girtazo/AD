@@ -12,7 +12,7 @@ public partial class Tabla: Gtk.Window
 	}
 	public void construirTabla(string nombre) {
 		IDbCommand sentenciaSQL = App.Instance.MysqlConnection.CreateCommand ();
-		sentenciaSQL.CommandText ("Select * from " + nombre);
+		sentenciaSQL.CommandText = "Select * from " + nombre;
 		IDataReader Lector = sentenciaSQL.ExecuteReader ();
 		Console.WriteLine(Lector.GetFieldType ());
 		string [] valor = new string[Lector.FieldCount];
@@ -35,7 +35,7 @@ public partial class Tabla: Gtk.Window
 		tabla.Model = campos;//en java treeView.setModel(listStore)
 		tabla.Selection.Changed += seleccionar;
 
-		MySqlCommand sentenciaSQL = new MySqlCommand ("Select * from "+tabla);
+		/*MySqlCommand sentenciaSQL = new MySqlCommand ("Select * from "+tabla);
 		sentenciaSQL.Connection = conexion;
 		MySqlDataReader Lector = sentenciaSQL.ExecuteReader ();
 		string [] valor = new string[Lector.FieldCount];
@@ -50,7 +50,7 @@ public partial class Tabla: Gtk.Window
 				nombreCampo[campo] = Lector.GetName (campo);
 				valor[campo] = Console.ReadLine ();
 			}
-			Lector.Close ();
+			Lector.Close ();*/
 		}
 	public void rellenarTabla() {
 		MySqlCommand sentenciaSQL = new MySqlCommand ("Select * from categoria");
