@@ -4,26 +4,77 @@ namespace PCategoria
 {
 	public partial class MySQL
 	{
-		private global::Gtk.ScrolledWindow GtkScrolledWindow;
-		private global::Gtk.TreeView treeViewBaseDatos;
+		private global::Gtk.UIManager UIManager;
+		private global::Gtk.Action ArchivoAction;
+		private global::Gtk.Action ArticuloAction;
+		private global::Gtk.Action CategoriaAction;
+		private global::Gtk.Action refreshAction;
+		private global::Gtk.Action deleteAction;
+		private global::Gtk.Action addAction;
+		private global::Gtk.Action saveAction;
+		private global::Gtk.ToggleAction floppyAction;
+		private global::Gtk.VBox vbox2;
+		private global::Gtk.MenuBar menubar1;
+		private global::Gtk.Toolbar toolbar1;
 
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
 			// Widget PCategoria.MySQL
+			this.UIManager = new global::Gtk.UIManager ();
+			global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
+			this.ArchivoAction = new global::Gtk.Action ("ArchivoAction", global::Mono.Unix.Catalog.GetString ("Archivo"), null, null);
+			this.ArchivoAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Archivo");
+			w1.Add (this.ArchivoAction, null);
+			this.ArticuloAction = new global::Gtk.Action ("ArticuloAction", global::Mono.Unix.Catalog.GetString ("Articulo"), null, null);
+			this.ArticuloAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Articulo");
+			w1.Add (this.ArticuloAction, null);
+			this.CategoriaAction = new global::Gtk.Action ("CategoriaAction", global::Mono.Unix.Catalog.GetString ("Categoria"), null, null);
+			this.CategoriaAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Categoria");
+			w1.Add (this.CategoriaAction, null);
+			this.refreshAction = new global::Gtk.Action ("refreshAction", null, null, "gtk-refresh");
+			this.refreshAction.Sensitive = false;
+			w1.Add (this.refreshAction, null);
+			this.deleteAction = new global::Gtk.Action ("deleteAction", null, null, "gtk-delete");
+			this.deleteAction.Sensitive = false;
+			w1.Add (this.deleteAction, null);
+			this.addAction = new global::Gtk.Action ("addAction", null, null, "gtk-add");
+			this.addAction.Sensitive = false;
+			w1.Add (this.addAction, null);
+			this.saveAction = new global::Gtk.Action ("saveAction", null, null, "gtk-save");
+			this.saveAction.Sensitive = false;
+			w1.Add (this.saveAction, null);
+			this.floppyAction = new global::Gtk.ToggleAction ("floppyAction", null, global::Mono.Unix.Catalog.GetString ("Autoguardado"), "gtk-floppy");
+			w1.Add (this.floppyAction, null);
+			this.UIManager.InsertActionGroup (w1, 0);
+			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "PCategoria.MySQL";
 			this.Title = global::Mono.Unix.Catalog.GetString ("MySQL");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Container child PCategoria.MySQL.Gtk.Container+ContainerChild
-			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
-			this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-			this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-			// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-			this.treeViewBaseDatos = new global::Gtk.TreeView ();
-			this.treeViewBaseDatos.CanFocus = true;
-			this.treeViewBaseDatos.Name = "treeViewBaseDatos";
-			this.GtkScrolledWindow.Add (this.treeViewBaseDatos);
-			this.Add (this.GtkScrolledWindow);
+			this.vbox2 = new global::Gtk.VBox ();
+			this.vbox2.Name = "vbox2";
+			this.vbox2.Spacing = 6;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='ArchivoAction' action='ArchivoAction'><menuitem name='ArticuloAction' action='ArticuloAction'/><menuitem name='CategoriaAction' action='CategoriaAction'/></menu></menubar></ui>");
+			this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
+			this.menubar1.Name = "menubar1";
+			this.vbox2.Add (this.menubar1);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.menubar1]));
+			w2.Position = 0;
+			w2.Expand = false;
+			w2.Fill = false;
+			// Container child vbox2.Gtk.Box+BoxChild
+			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='refreshAction' action='refreshAction'/><toolitem name='deleteAction' action='deleteAction'/><toolitem name='addAction' action='addAction'/><toolitem name='saveAction' action='saveAction'/><toolitem name='floppyAction' action='floppyAction'/></toolbar></ui>");
+			this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
+			this.toolbar1.Name = "toolbar1";
+			this.toolbar1.ShowArrow = false;
+			this.vbox2.Add (this.toolbar1);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.toolbar1]));
+			w3.Position = 1;
+			w3.Expand = false;
+			w3.Fill = false;
+			this.Add (this.vbox2);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}

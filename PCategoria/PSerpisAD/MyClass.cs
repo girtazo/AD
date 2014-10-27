@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Data;
 using MySql.Data.MySqlClient;
 using PCategoria;
@@ -29,11 +29,17 @@ namespace SerpisAd{
 			get { return password;}
 			set { password = value; }
 		}
-		private IDbConnection mysqlConnection = new IDbConnection("Data Source="+servidor+";User Id="+Usuario+";Password="+Password);
+		private IDbConnection mysqlConnection;
 		public IDbConnection MysqlConnection {
-			get { return mysqlConnection;}
+			get { 
+				if (mysqlConnection == null){
+					mysqlConnection = new MySqlConnection("Data Source="+servidor+";User Id="+usuario+";Password="+password);
+				return mysqlConnection;
+				}
+			}
 			set { mysqlConnection = value; }
+		
 		}
 	}
-}
+}*/
 

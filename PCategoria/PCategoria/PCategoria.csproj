@@ -81,6 +81,7 @@
     <Compile Include="MySQL.cs" />
     <Compile Include="gtk-gui\PCategoria.MySQL.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="EmptyClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

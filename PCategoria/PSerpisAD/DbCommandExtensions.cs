@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Data;
 
 namespace PSerpisAD
@@ -13,5 +13,5 @@ namespace PSerpisAD
 			dbCommand.Parameters.Add (dbDataParameter);
 		}
 	}
-}
+}*/
 

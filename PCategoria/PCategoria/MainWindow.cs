@@ -33,9 +33,10 @@ namespace PCategoria
 			}
 			MySQL ventanaMysql = new MySQL();
 
-			ventanaMysql.listarBaseDatos ();
+			/*ventanaMysql.listarBaseDatos ();
 
-			ventanaMysql.Show ();
+			ventanaMysql.Show ();*/
+			/*ventanaMysql.mostrarTablas ();*/
 		}
 		protected void conecta (object sender, EventArgs e)
 		{
@@ -43,7 +44,6 @@ namespace PCategoria
 
 			App.Instance.Usuario = entryUsuario.Text;
 			App.Instance.Password = entryPassword.Text;
-			//Console.ReadLine();
 
 			obtenerConexion ();
 		}
