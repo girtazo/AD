@@ -1,13 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PCategoria/BaseDatos.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PCategoria/MySQL.cs">
     <Files>
-      <File FileName="PCategoria/App.cs" Line="35" Column="108" />
-      <File FileName="PCategoria/Program.cs" Line="15" Column="1" />
-      <File FileName="PCategoria/MainWindow.cs" Line="10" Column="3" />
-      <File FileName="PCategoria/tabla1.cs" Line="7" Column="2" />
-      <File FileName="PCategoria/BaseDatos.cs" Line="16" Column="26" />
-      <File FileName="PCategoria/EmptyClass.cs" Line="14" Column="31" />
+      <File FileName="PCategoria/BaseDatos.cs" Line="7" Column="8" />
+      <File FileName="PCategoria/App.cs" Line="22" Column="9" />
+      <File FileName="PCategoria/EmptyClass.cs" Line="6" Column="21" />
+      <File FileName="PCategoria/MainWindow.cs" Line="51" Column="2" />
+      <File FileName="PCategoria/tabla1.cs" Line="1" Column="1" />
+      <File FileName="PCategoria/MySQL.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

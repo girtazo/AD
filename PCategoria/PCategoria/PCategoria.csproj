@@ -77,13 +77,13 @@
     <Compile Include="MainWindow.cs" />
     <Compile Include="MySQL.cs" />
     <Compile Include="gtk-gui\PCategoria.MySQL.cs" />
-    <Compile Include="App.cs" />
     <Compile Include="EmptyClass.cs" />
     <Compile Include="tabla1.cs">
       <DeployService-Deploy>True</DeployService-Deploy>
     </Compile>
     <Compile Include="BaseDatos.cs" />
     <Compile Include="gtk-gui\PCategoria.BaseDatos.cs" />
+    <Compile Include="Properties\App.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
