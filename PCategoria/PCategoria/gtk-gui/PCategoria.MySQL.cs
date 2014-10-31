@@ -13,6 +13,9 @@ namespace PCategoria
 		private global::Gtk.Action addAction;
 		private global::Gtk.Action saveAction;
 		private global::Gtk.ToggleAction floppyAction;
+		private global::Gtk.Action AbrirAction;
+		private global::Gtk.Action CategoriaAction1;
+		private global::Gtk.Action ArticuloAction1;
 		private global::Gtk.VBox vbox2;
 		private global::Gtk.MenuBar menubar1;
 		private global::Gtk.Toolbar toolbar1;
@@ -46,6 +49,15 @@ namespace PCategoria
 			w1.Add (this.saveAction, null);
 			this.floppyAction = new global::Gtk.ToggleAction ("floppyAction", null, global::Mono.Unix.Catalog.GetString ("Autoguardado"), "gtk-floppy");
 			w1.Add (this.floppyAction, null);
+			this.AbrirAction = new global::Gtk.Action ("AbrirAction", global::Mono.Unix.Catalog.GetString ("Abrir"), null, null);
+			this.AbrirAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Abrir");
+			w1.Add (this.AbrirAction, null);
+			this.CategoriaAction1 = new global::Gtk.Action ("CategoriaAction1", global::Mono.Unix.Catalog.GetString ("Categoria"), null, null);
+			this.CategoriaAction1.ShortLabel = global::Mono.Unix.Catalog.GetString ("Categoria");
+			w1.Add (this.CategoriaAction1, null);
+			this.ArticuloAction1 = new global::Gtk.Action ("ArticuloAction1", global::Mono.Unix.Catalog.GetString ("Articulo"), null, null);
+			this.ArticuloAction1.ShortLabel = global::Mono.Unix.Catalog.GetString ("Articulo");
+			w1.Add (this.ArticuloAction1, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
 			this.Name = "PCategoria.MySQL";
@@ -56,7 +68,7 @@ namespace PCategoria
 			this.vbox2.Name = "vbox2";
 			this.vbox2.Spacing = 6;
 			// Container child vbox2.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='ArchivoAction' action='ArchivoAction'><menuitem name='ArticuloAction' action='ArticuloAction'/><menuitem name='CategoriaAction' action='CategoriaAction'/></menu></menubar></ui>");
+			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='ArchivoAction' action='ArchivoAction'><menu name='AbrirAction' action='AbrirAction'><menuitem name='CategoriaAction1' action='CategoriaAction1'/><menuitem name='ArticuloAction1' action='ArticuloAction1'/></menu></menu></menubar></ui>");
 			this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 			this.menubar1.Name = "menubar1";
 			this.vbox2.Add (this.menubar1);

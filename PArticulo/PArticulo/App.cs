@@ -28,19 +28,20 @@ public class App
 		get { return password;}
 		set { password = value; }
 	}
-	private string BaseDatos = "dbprueba";
-	public string baseDatos {
-		get { return BaseDatos;}
-		set { BaseDatos = value; }
+	private string database = "dbprueba";
+	public string Database {
+		get { return database;}
+		set { database = value; }
 	}
 	private IDbConnection mysqlConnection ;
 	public IDbConnection MysqlConnection {
 		get { 
 			if (mysqlConnection == null)
-				mysqlConnection = new MySqlConnection("Database="+BaseDatos+";Data Source="+servidor+";User Id="+usuario+";Password="+password);
+				mysqlConnection = new MySqlConnection("Data Source="+servidor+";User Id="+usuario+";Password="+password+";DataBase="+database);
 			return mysqlConnection;
 		}
 		set { mysqlConnection = value; }
 	}
 }
+
 

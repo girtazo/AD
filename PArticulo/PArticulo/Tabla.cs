@@ -1,45 +1,42 @@
+using System;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System;
-using MySql.Data;
 using System.Collections.Generic;
 namespace PArticulo
 {
 	public class Tabla
 	{
-		private List<string> campos = new List<string> ();
-		private List<object> valores = new List<object> ();
-		private string nombre;
+		private IDataReader Lector;
 		private IDbCommand sentenciaSQL;
-		public Tabla(string nombreTabla) {
-			nombre = nombreTabla;
+		private List<Campo> campos = new List<Campo>();
+		private object [] valores;
+		public string nombre;
+		public Tabla(string nombre){
+			this.nombre = nombre;
+			this.sentenciaSQL = App.Instance.MysqlConnection.CreateCommand ();
 		}
-		public List<string> getCampos()
+		public List<Campo> getCampos()
 		{
-			sentenciaSQL.CommandText = "Select * from " + nombre;
-			IDataReader Lector = sentenciaSQL.ExecuteReader ();
-			for (int campo=0; campo < Lector.FieldCount; campo++) {
-				campos[campo] = Lector.GetName (campo);
+			this.sentenciaSQL.CommandText = "Select * from " + this.nombre;
+			this.Lector = this.sentenciaSQL.ExecuteReader ();
+			for (int campo=0; campo < this.Lector.FieldCount; campo++) {
+				this.campos.Add( new Campo (this.Lector.GetName (campo), this.Lector.GetFieldType (campo)));
 			}
-			return campos;
+			this.Lector.Close ();
+			return this.campos;
 		}
-		public List<object> listar()
+		public void listar()
 		{
-			sentenciaSQL = App.Instance.MysqlConnection.CreateCommand();
 			int c = 0;
-			sentenciaSQL.CommandText = "Select * from " + nombre;
-			IDataReader Lector = sentenciaSQL.ExecuteReader ();
-			object [] tupla = new object[campos.Count];
 			while (Lector.Read ()) {
-				for(int campo = 0; campo < Lector.FieldCount;campo++ ) {
-					tupla[c] = Lector.GetValue(campo);
-				}
-				valores [c] = tupla;
+				Console.WriteLine (Lector ["id"].GetType());
+				/*foreach(string campo in this.campos){
+					valores[c][campo] = Lector[campo];
+				}*/
 				c = c + 1;
 			}
-
-			return valores;
 		}
 	}
 }
+
 

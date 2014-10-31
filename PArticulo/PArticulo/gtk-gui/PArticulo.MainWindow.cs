@@ -9,7 +9,7 @@ namespace PArticulo
 		private global::Gtk.Entry entryUsuario;
 		private global::Gtk.Label label2;
 		private global::Gtk.Entry entryPassword;
-		private global::Gtk.Button button1;
+		private global::Gtk.Button GtkButton;
 
 		protected virtual void Build ()
 		{
@@ -59,13 +59,13 @@ namespace PArticulo
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.entryPassword]));
 			w4.Position = 3;
 			// Container child hbox1.Gtk.Box+BoxChild
-			this.button1 = new global::Gtk.Button ();
-			this.button1.CanFocus = true;
-			this.button1.Name = "button1";
-			this.button1.UseUnderline = true;
-			this.button1.Label = global::Mono.Unix.Catalog.GetString ("Conectar");
-			this.hbox1.Add (this.button1);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.button1]));
+			this.GtkButton = new global::Gtk.Button ();
+			this.GtkButton.CanFocus = true;
+			this.GtkButton.Name = "GtkButton";
+			this.GtkButton.UseUnderline = true;
+			this.GtkButton.Label = global::Mono.Unix.Catalog.GetString ("Conectar");
+			this.hbox1.Add (this.GtkButton);
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.GtkButton]));
 			w5.Position = 4;
 			w5.Expand = false;
 			w5.Fill = false;
@@ -74,10 +74,10 @@ namespace PArticulo
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 555;
-			this.DefaultHeight = 33;
+			this.DefaultHeight = 32;
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
-			this.button1.Clicked += new global::System.EventHandler (this.conecta);
+			this.GtkButton.Clicked += new global::System.EventHandler (this.conecta);
 		}
 	}
 }
