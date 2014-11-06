@@ -14,6 +14,7 @@ namespace PArticulo
 			try {
 				App.Instance.MysqlConnection.Open();
 				BaseDatos baseDatos = new BaseDatos();
+				baseDatos.ConstruirTabla("articulo");
 				baseDatos.ConstruirTabla("categoria");
 				baseDatos.ShowAll();
 				this.Destroy();

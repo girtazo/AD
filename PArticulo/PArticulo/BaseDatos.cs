@@ -18,8 +18,10 @@ namespace PArticulo
 		public void ConstruirTabla(string nombre){
 
 			this.tabla.Add( new Tabla (nombre));
+			vbox1.ShowAll ();
 			vbox1.Add (this.tabla [tablasAbiertas].pestanya);
 			this.tablasAbiertas = tablasAbiertas + 1;
+			vbox1.ShowAll ();
 		}
 	}
 }

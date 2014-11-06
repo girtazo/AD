@@ -83,6 +83,7 @@
     <Compile Include="BDTabla.cs" />
     <Compile Include="Tabla.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="Articulo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

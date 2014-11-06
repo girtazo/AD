@@ -31,17 +31,25 @@ namespace PArticulo
 			this.valores = new List<object>();
 			this.sentenciaSQL.CommandText = "Select * FROM "+this.nombre;
 			Lector = this.sentenciaSQL.ExecuteReader ();
-			if (this.nombre == "categoria") {
+			switch (this.nombre) {
+			case "categoria":
 				while (Lector.Read ()) {
-					this.valores.Add ( new Categoria ( Convert.ToInt32(Lector ["id"]), Convert.ToString(Lector ["nombre"]) ) );
+					this.valores.Add (new Categoria (Convert.ToUInt64 (Lector ["id"]), Lector ["nombre"].ToString ()));
 				}
+				break;
+			case "articulo":
+				while (Lector.Read ()) {
+					this.valores.Add ( new Articulo ( 
+					    	                        Convert.ToUInt64( Lector ["id"]),
+					        	                    Lector ["nombre"].ToString(),
+					            	      			Lector ["categoria"],
+					                	            Lector ["precio"]
+					                    	        )
+					                  );
+				}
+				break;
 			}
 			return this.valores;
-			//Luis
-			// "precio",new CellRenderererText(),new TreeCellDataFunc(
-			//	delegate(TreeViewColumn tree_column,CellRenderer cell,TreeModel tree_model,TreeIter iter){
-			// ((CellRendererText) cell).text =tree_model.GetValue(iter,3).ToString();
-			//})
 		}
 	}
 }

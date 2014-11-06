@@ -1,12 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PCategoria/BaseDatos.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PCategoria/tabla1.cs">
     <Files>
-      <File FileName="PCategoria/BaseDatos.cs" Line="16" Column="11" />
+      <File FileName="PCategoria/BaseDatos.cs" Line="16" Column="26" />
       <File FileName="PCategoria/App.cs" Line="22" Column="9" />
       <File FileName="PCategoria/EmptyClass.cs" Line="6" Column="21" />
-      <File FileName="PCategoria/MainWindow.cs" Line="51" Column="2" />
-      <File FileName="PCategoria/tabla1.cs" Line="38" Column="15" />
+      <File FileName="PCategoria/MainWindow.cs" Line="28" Column="18" />
+      <File FileName="PCategoria/tabla1.cs" Line="13" Column="28" />
       <File FileName="PCategoria/MySQL.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

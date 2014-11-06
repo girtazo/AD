@@ -14,10 +14,13 @@ namespace PArticulo
 			this.bdtabla = new BDTabla (this.nombre);
 			List<Campo> campos = this.bdtabla.getCampos ();
 			this.treeView = new TreeViewTabla (campos);
+			this.treeView.ShowAll ();
 			List<object> valores = this.bdtabla.listar ();
 			this.treeView.rellenar (valores);
 			this.pestanya = new NotebookTabla();
+			this.pestanya.ShowAll ();
 			this.pestanya.Nueva (this.treeView,this.nombre);
+			this.pestanya.ShowAll ();
 		}
 	}
 }

@@ -1,18 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/BDTabla.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/MainWindow.cs">
     <Files>
-      <File FileName="PArticulo/BaseDatos.cs" Line="1" Column="1" />
-      <File FileName="PArticulo/Tabla.cs" Line="1" Column="1" />
-      <File FileName="PArticulo/TreeViewTabla.cs" Line="1" Column="1" />
-      <File FileName="PArticulo/BDTabla.cs" Line="35" Column="29" />
-      <File FileName="PArticulo/Categoria.cs" Line="11" Column="1" />
+      <File FileName="PArticulo/MainWindow.cs" Line="14" Column="9" />
+      <File FileName="PArticulo/BaseDatos.cs" Line="23" Column="1" />
+      <File FileName="PArticulo/BDTabla.cs" Line="49" Column="1" />
+      <File FileName="PArticulo/Tabla.cs" Line="22" Column="1" />
+      <File FileName="PArticulo/TreeViewTabla.cs" Line="45" Column="23" />
+      <File FileName="PArticulo/Categoria.cs" Line="7" Column="13" />
+      <File FileName="PArticulo/Articulo.cs" Line="17" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="PArticulo" expanded="True">
-            <Node name="BDTabla.cs" selected="True" />
+            <Node name="MainWindow.cs" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -20,9 +22,7 @@
         <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>this.estructura</Value>
-        </State>
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
@@ -32,5 +32,8 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
     <Watch file="PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
+    <Watch file="PArticulo/Categoria.cs" line="9" offsetX="462" offsetY="144" expression="id" liveUpdate="False" />
+    <Watch file="PArticulo/MainWindow.cs" line="18" offsetX="350" offsetY="306" expression="baseDatos" liveUpdate="False" />
+    <Watch file="PArticulo/Tabla.cs" line="18" offsetX="84" offsetY="528" expression="valores[0].id" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
