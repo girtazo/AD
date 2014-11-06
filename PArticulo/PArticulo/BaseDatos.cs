@@ -7,19 +7,18 @@ namespace PArticulo
 {
 	public partial class BaseDatos : Gtk.Window
 	{
-		private List<TreeViewTabla> treeView = new List<TreeViewTabla> ();
-		private List<Tabla> tabla = new List<Tabla>();
-		private NotebookTabla recuadro = new NotebookTabla();
-		private int tablasAbiertas = 0;
+		private List<Tabla> tabla;
+		private int tablasAbiertas;
 		public BaseDatos () : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
+			this.tabla = new List<Tabla>();
+			this.tablasAbiertas = 0;
 		}
 		public void ConstruirTabla(string nombre){
 
 			this.tabla.Add( new Tabla (nombre));
-			this.treeView.Add(new TreeViewTabla(this.tabla [tablasAbiertas].getCampos ()));
-			recuadro.PestanyaNueva (this.treeView[tablasAbiertas],this.tabla[tablasAbiertas].nombre);
+			vbox1.Add (this.tabla [tablasAbiertas].pestanya);
 			this.tablasAbiertas = tablasAbiertas + 1;
 		}
 	}

@@ -77,11 +77,12 @@
     <Compile Include="gtk-gui\PArticulo.MainWindow.cs" />
     <Compile Include="BaseDatos.cs" />
     <Compile Include="gtk-gui\PArticulo.BaseDatos.cs" />
-    <Compile Include="Tabla.cs" />
     <Compile Include="Campo.cs" />
     <Compile Include="TreeViewTabla.cs" />
     <Compile Include="NotebookTabla.cs" />
-    <Compile Include="etiqueta.cs" />
+    <Compile Include="BDTabla.cs" />
+    <Compile Include="Tabla.cs" />
+    <Compile Include="Categoria.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

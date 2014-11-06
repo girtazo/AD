@@ -21,6 +21,11 @@ namespace PArticulo
 			this.Columnas = new ListStore (ArrayTipos);
 			this.Model = this.Columnas;
 		}
+		public void rellenar(List<object> valores) {
+			foreach (List<object> tupla in valores) {
+				Columnas.AppendValues (tupla);
+			}
+		}
 	}
 }
 
