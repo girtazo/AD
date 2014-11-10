@@ -29,9 +29,20 @@ namespace PArticulo
 		public List<Object> listar()
 		{
 			this.valores = new List<object>();
+			int c = 0;
 			this.sentenciaSQL.CommandText = "Select * FROM "+this.nombre;
 			Lector = this.sentenciaSQL.ExecuteReader ();
-			switch (this.nombre) {
+			/*modificacion*/
+			while (Lector.Read ()) {
+				List<object> tupla = new List<object>();
+				for(int campo = 0;campo<Lector.FieldCount;campo++){
+					tupla.Add(Lector.GetValue(campo));
+				}
+				this.valores.Add (tupla);
+			}
+			Lector.Close();
+			/**/
+			/*switch (this.nombre) {
 			case "categoria":
 				while (Lector.Read ()) {
 					this.valores.Add (new Categoria (Convert.ToUInt64 (Lector ["id"]), Lector ["nombre"].ToString ()));
@@ -48,7 +59,7 @@ namespace PArticulo
 					                  );
 				}
 				break;
-			}
+			}*/
 			return this.valores;
 		}
 	}

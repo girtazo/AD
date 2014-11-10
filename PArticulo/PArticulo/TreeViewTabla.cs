@@ -13,20 +13,26 @@ namespace PArticulo
 			Type[] ArrayTipos;
 			int columna = 0;
 			foreach(Campo campo in campos){
-				if (columna < 2) {
+				int innerColumn = columna;
+				/*if (columna < 2) {
 					this.AppendColumn (campo.nombre, new CellRendererText (), "text", columna);
-				} else {
+				} else {*/
 					this.AppendColumn (
 						campo.nombre, 
 						new CellRendererText (),
 						new TreeCellDataFunc (
 							delegate(TreeViewColumn tree_column, CellRenderer cell,TreeModel tree_model, TreeIter iter) {
-								object value = tree_model.GetValue (iter, 3);
-								((CellRendererText)cell).Text = value != DBNull.Value ? value.ToString () : "null";
+								object value = tree_model.GetValue (iter, columna);
+								if(value == null){
+									((CellRendererText)cell).Text = "null";
+								} else {
+									((CellRendererText)cell).Text =	value.ToString();
+								}
+								/*((CellRendererText)cell).Text = value != DBNull.Value ? value.ToString () : "null";*/
 							}
 						)
 					);
-				}
+				/*}*/
 				tipos.Add (campo.tipo);
 				columna = columna +1;
 			}
@@ -35,9 +41,11 @@ namespace PArticulo
 			this.Model = this.Columnas;
 		}
 		public void rellenar(List<object> valores) {
-			foreach (object tupla in valores) {
+			foreach (List<object> tupla in valores) {
 				try {
-					switch (tupla.GetType().Name) {
+					Array campos = tupla.ToArray();
+					Columnas.AppendValues(campos);
+					/*switch (tupla.GetType().Name) {
 						case "Categoria":
 							Categoria categoria = (Categoria)tupla;
 							Columnas.AppendValues(categoria.id,categoria.nombre);
@@ -61,7 +69,7 @@ namespace PArticulo
 								}
 							}
 						break;
-					}
+					}*/
 				} catch (Exception e){
 					string mensaje = e.Message;
 				}

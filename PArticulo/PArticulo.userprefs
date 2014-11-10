@@ -1,20 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/TreeViewTabla.cs">
     <Files>
-      <File FileName="PArticulo/MainWindow.cs" Line="14" Column="9" />
-      <File FileName="PArticulo/BaseDatos.cs" Line="23" Column="1" />
-      <File FileName="PArticulo/BDTabla.cs" Line="49" Column="1" />
-      <File FileName="PArticulo/Tabla.cs" Line="22" Column="1" />
-      <File FileName="PArticulo/TreeViewTabla.cs" Line="45" Column="23" />
-      <File FileName="PArticulo/Categoria.cs" Line="7" Column="13" />
-      <File FileName="PArticulo/Articulo.cs" Line="17" Column="31" />
+      <File FileName="PArticulo/TreeViewTabla.cs" Line="27" Column="28" />
+      <File FileName="PArticulo/BDTabla.cs" Line="37" Column="30" />
+      <File FileName="PArticulo/BaseDatos.cs" Line="12" Column="29" />
+      <File FileName="PArticulo/MainWindow.cs" Line="19" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="PArticulo" expanded="True">
-            <Node name="MainWindow.cs" selected="True" />
+            <Node name="TreeViewTabla.cs" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -27,7 +24,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/mati/AD/PArticulo/PArticulo/TreeViewTabla.cs" line="47" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
