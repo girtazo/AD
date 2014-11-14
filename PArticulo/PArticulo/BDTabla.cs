@@ -36,7 +36,11 @@ namespace PArticulo
 			while (Lector.Read ()) {
 				List<object> tupla = new List<object>();
 				for(int campo = 0;campo<Lector.FieldCount;campo++){
-					tupla.Add(Lector.GetValue(campo));
+					if (campo == 2) {
+						tupla.Add (Convert.ChangeType (Lector.GetValue (campo), typeof(object)));
+					} else {
+						tupla.Add (Lector.GetValue (campo));
+					}
 				}
 				this.valores.Add (tupla);
 			}

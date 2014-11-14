@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/TreeViewTabla.cs">
     <Files>
-      <File FileName="PArticulo/TreeViewTabla.cs" Line="27" Column="28" />
-      <File FileName="PArticulo/BDTabla.cs" Line="37" Column="30" />
+      <File FileName="PArticulo/TreeViewTabla.cs" Line="56" Column="19" />
+      <File FileName="PArticulo/BDTabla.cs" Line="42" Column="43" />
       <File FileName="PArticulo/BaseDatos.cs" Line="12" Column="29" />
       <File FileName="PArticulo/MainWindow.cs" Line="19" Column="17" />
     </Files>
@@ -24,9 +24,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/mati/AD/PArticulo/PArticulo/TreeViewTabla.cs" line="47" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />

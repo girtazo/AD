@@ -13,17 +13,20 @@ namespace PArticulo
 			Type[] ArrayTipos;
 			int columna = 0;
 			foreach(Campo campo in campos){
-				int innerColumn = columna;
-				/*if (columna < 2) {
+
+				if (columna < 2) {
 					this.AppendColumn (campo.nombre, new CellRendererText (), "text", columna);
-				} else {*/
+				} else {
+					int innerColumn = columna;
 					this.AppendColumn (
 						campo.nombre, 
 						new CellRendererText (),
 						new TreeCellDataFunc (
 							delegate(TreeViewColumn tree_column, CellRenderer cell,TreeModel tree_model, TreeIter iter) {
-								object value = tree_model.GetValue (iter, columna);
-								if(value == null){
+								
+								object value = tree_model.GetValue (iter, innerColumn);
+								Console.WriteLine(value);
+								if(value == DBNull.Value || value == null){
 									((CellRendererText)cell).Text = "null";
 								} else {
 									((CellRendererText)cell).Text =	value.ToString();
@@ -32,7 +35,11 @@ namespace PArticulo
 							}
 						)
 					);
-				/*}*/
+				}
+				// Indicacion de nulos con Uint64
+				if( columna == 2){
+					campo.tipo = typeof(object);
+				}
 				tipos.Add (campo.tipo);
 				columna = columna +1;
 			}
@@ -43,11 +50,29 @@ namespace PArticulo
 		public void rellenar(List<object> valores) {
 			foreach (List<object> tupla in valores) {
 				try {
-					Array campos = tupla.ToArray();
+					object[] campos = tupla.ToArray();
+
 					Columnas.AppendValues(campos);
+					this.ShowAll();
 					/*switch (tupla.GetType().Name) {
 						case "Categoria":
-							Categoria categoria = (Categoria)tupla;
+							Ca
+						)
+					);
+				}
+				// Indicacion de nulos con Uint64
+				if( columna == 2){
+					campo.tipo = typeof(object);
+				}
+				tipos.Add (campo.tipo);
+				columna = columna +1;
+			}
+			ArrayTipos = tipos.ToArray ();
+			this.Columnas = new ListStore (ArrayTipos);
+			this.Model = this.Columnas;
+		}
+		public void rellenar(List<object> valores) {
+			foreach (List<object> tupla in valores) {tegoria categoria = (Categoria)tupla;
 							Columnas.AppendValues(categoria.id,categoria.nombre);
 						break;
 						case "Articulo":
