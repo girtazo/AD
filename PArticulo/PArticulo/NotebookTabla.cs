@@ -18,7 +18,10 @@ namespace PArticulo
 			AppendPage (tabla, etiqueta);
 			Btncerrar.Clicked += delegate {
 				Console.WriteLine("cierra");
-				this.RemovePage(this.PageNum(nombreEtiqueta));
+				Widget widget = Btncerrar.Parent;
+				Widget widget1= Btncerrar.Parent.Parent;
+				Widget widget2 = Btncerrar.Parent.Parent.Parent;
+				this.Remove(this.Parent.Parent);
 			};
 		}
 	}
