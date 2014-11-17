@@ -16,6 +16,10 @@ namespace PArticulo
 			etiqueta.Add (Btncerrar);
 			etiqueta.ShowAll ();
 			AppendPage (tabla, etiqueta);
+			Btncerrar.Clicked += delegate {
+				Console.WriteLine("cierra");
+				this.RemovePage(this.PageNum(nombreEtiqueta));
+			};
 		}
 	}
 }

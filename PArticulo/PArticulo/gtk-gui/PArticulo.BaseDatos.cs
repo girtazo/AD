@@ -5,6 +5,14 @@ namespace PArticulo
 	public partial class BaseDatos
 	{
 		private global::Gtk.UIManager UIManager;
+		private global::Gtk.Action refreshAction;
+		private global::Gtk.Action addAction;
+		private global::Gtk.Action undeleteAction;
+		private global::Gtk.Action saveAction;
+		private global::Gtk.ToggleAction saveAsAction;
+		private global::Gtk.Action TablasAction;
+		private global::Gtk.Action ArticuloAction;
+		private global::Gtk.Action CategoriaAction;
 		private global::Gtk.VBox vbox1;
 		private global::Gtk.MenuBar menubar1;
 		private global::Gtk.Toolbar toolbar1;
@@ -15,8 +23,31 @@ namespace PArticulo
 			// Widget PArticulo.BaseDatos
 			this.UIManager = new global::Gtk.UIManager ();
 			global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
+			this.refreshAction = new global::Gtk.Action ("refreshAction", null, null, "gtk-refresh");
+			w1.Add (this.refreshAction, null);
+			this.addAction = new global::Gtk.Action ("addAction", null, null, "gtk-add");
+			w1.Add (this.addAction, null);
+			this.undeleteAction = new global::Gtk.Action ("undeleteAction", null, null, "gtk-undelete");
+			w1.Add (this.undeleteAction, null);
+			this.saveAction = new global::Gtk.Action ("saveAction", null, null, "gtk-save");
+			w1.Add (this.saveAction, null);
+			this.saveAsAction = new global::Gtk.ToggleAction ("saveAsAction", null, null, "gtk-save-as");
+			this.saveAsAction.Active = true;
+			w1.Add (this.saveAsAction, null);
+			this.TablasAction = new global::Gtk.Action ("TablasAction", global::Mono.Unix.Catalog.GetString ("Tablas"), null, null);
+			this.TablasAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Tablas");
+			w1.Add (this.TablasAction, null);
+			this.ArticuloAction = new global::Gtk.Action ("ArticuloAction", global::Mono.Unix.Catalog.GetString ("Articulo"), null, null);
+			this.ArticuloAction.Sensitive = false;
+			this.ArticuloAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Articulo");
+			w1.Add (this.ArticuloAction, null);
+			this.CategoriaAction = new global::Gtk.Action ("CategoriaAction", global::Mono.Unix.Catalog.GetString ("Categoria"), null, null);
+			this.CategoriaAction.Sensitive = false;
+			this.CategoriaAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Categoria");
+			w1.Add (this.CategoriaAction, null);
 			this.UIManager.InsertActionGroup (w1, 0);
 			this.AddAccelGroup (this.UIManager.AccelGroup);
+			this.ExtensionEvents = ((global::Gdk.ExtensionMode)(1));
 			this.Name = "PArticulo.BaseDatos";
 			this.Title = global::Mono.Unix.Catalog.GetString ("BaseDatos");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
@@ -25,7 +56,7 @@ namespace PArticulo
 			this.vbox1.Name = "vbox1";
 			this.vbox1.Spacing = 6;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'/></ui>");
+			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='TablasAction' action='TablasAction'><menuitem name='ArticuloAction' action='ArticuloAction'/><menuitem name='CategoriaAction' action='CategoriaAction'/></menu></menubar></ui>");
 			this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 			this.menubar1.Name = "menubar1";
 			this.vbox1.Add (this.menubar1);
@@ -34,7 +65,7 @@ namespace PArticulo
 			w2.Expand = false;
 			w2.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'/></ui>");
+			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='refreshAction' action='refreshAction'/><toolitem name='addAction' action='addAction'/><toolitem name='undeleteAction' action='undeleteAction'/><toolitem name='saveAction' action='saveAction'/><toolitem name='saveAsAction' action='saveAsAction'/></toolbar></ui>");
 			this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 			this.toolbar1.Name = "toolbar1";
 			this.toolbar1.ShowArrow = false;
@@ -50,6 +81,9 @@ namespace PArticulo
 			this.DefaultWidth = 400;
 			this.DefaultHeight = 300;
 			this.Show ();
+			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+			this.ArticuloAction.Activated += new global::System.EventHandler (this.TablaArticulo);
+			this.CategoriaAction.Activated += new global::System.EventHandler (this.TablaCategoria);
 		}
 	}
 }

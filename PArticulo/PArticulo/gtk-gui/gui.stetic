@@ -85,10 +85,59 @@
     </child>
   </widget>
   <widget class="Gtk.Window" id="PArticulo.BaseDatos" design-size="400 300">
-    <action-group name="Default" />
+    <action-group name="Default">
+      <action id="refreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-refresh</property>
+      </action>
+      <action id="addAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-add</property>
+      </action>
+      <action id="undeleteAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-undelete</property>
+      </action>
+      <action id="saveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+      </action>
+      <action id="saveAsAction">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save-as</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">True</property>
+      </action>
+      <action id="TablasAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Tablas</property>
+        <property name="ShortLabel" translatable="yes">Tablas</property>
+      </action>
+      <action id="ArticuloAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Articulo</property>
+        <property name="Sensitive">False</property>
+        <property name="ShortLabel" translatable="yes">Articulo</property>
+        <signal name="Activated" handler="TablaArticulo" />
+      </action>
+      <action id="CategoriaAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Categoria</property>
+        <property name="Sensitive">False</property>
+        <property name="ShortLabel" translatable="yes">Categoria</property>
+        <signal name="Activated" handler="TablaCategoria" />
+      </action>
+    </action-group>
     <property name="MemberName" />
+    <property name="ExtensionEvents">All</property>
     <property name="Title" translatable="yes">BaseDatos</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox1">
         <property name="MemberName" />
@@ -96,7 +145,12 @@
         <child>
           <widget class="Gtk.MenuBar" id="menubar1">
             <property name="MemberName" />
-            <node name="menubar1" type="Menubar" />
+            <node name="menubar1" type="Menubar">
+              <node type="Menu" action="TablasAction">
+                <node type="Menuitem" action="ArticuloAction" />
+                <node type="Menuitem" action="CategoriaAction" />
+              </node>
+            </node>
           </widget>
           <packing>
             <property name="Position">0</property>
@@ -109,7 +163,13 @@
           <widget class="Gtk.Toolbar" id="toolbar1">
             <property name="MemberName" />
             <property name="ShowArrow">False</property>
-            <node name="toolbar1" type="Toolbar" />
+            <node name="toolbar1" type="Toolbar">
+              <node type="Toolitem" action="refreshAction" />
+              <node type="Toolitem" action="addAction" />
+              <node type="Toolitem" action="undeleteAction" />
+              <node type="Toolitem" action="saveAction" />
+              <node type="Toolitem" action="saveAsAction" />
+            </node>
           </widget>
           <packing>
             <property name="Position">1</property>

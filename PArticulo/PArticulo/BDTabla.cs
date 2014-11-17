@@ -32,7 +32,6 @@ namespace PArticulo
 			int c = 0;
 			this.sentenciaSQL.CommandText = "Select * FROM "+this.nombre;
 			Lector = this.sentenciaSQL.ExecuteReader ();
-			/*modificacion*/
 			while (Lector.Read ()) {
 				List<object> tupla = new List<object>();
 				for(int campo = 0;campo<Lector.FieldCount;campo++){
@@ -45,25 +44,6 @@ namespace PArticulo
 				this.valores.Add (tupla);
 			}
 			Lector.Close();
-			/**/
-			/*switch (this.nombre) {
-			case "categoria":
-				while (Lector.Read ()) {
-					this.valores.Add (new Categoria (Convert.ToUInt64 (Lector ["id"]), Lector ["nombre"].ToString ()));
-				}
-				break;
-			case "articulo":
-				while (Lector.Read ()) {
-					this.valores.Add ( new Articulo ( 
-					    	                        Convert.ToUInt64( Lector ["id"]),
-					        	                    Lector ["nombre"].ToString(),
-					            	      			Lector ["categoria"],
-					                	            Lector ["precio"]
-					                    	        )
-					                  );
-				}
-				break;
-			}*/
 			return this.valores;
 		}
 	}

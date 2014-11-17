@@ -9,14 +9,17 @@ namespace PArticulo
 		public MainWindow () : base(Gtk.WindowType.Toplevel)
 		{
 			Build ();
+			this.entryUsuario.Text = "root";
+			this.entryPassword.Text = "sistemas";
+			Focus = this.GtkButton;
 		}
 		private void obtenerConexion() {
 			try {
 				App.Instance.MysqlConnection.Open();
-				BaseDatos baseDatos = new BaseDatos();
-				baseDatos.ConstruirTabla("articulo");
+				BaseDatos baseDatos = new BaseDatos(this);
 				baseDatos.ShowAll();
-				this.Destroy();
+				this.HideAll();
+
 			} catch (MySqlException e) {
 				Console.WriteLine("Usuario:"+App.Instance.Usuario+"Password: "+App.Instance.Password );
 				MessageDialog error = new MessageDialog (
