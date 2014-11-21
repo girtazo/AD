@@ -73,7 +73,6 @@
     <Compile Include="MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="App.cs" />
     <Compile Include="gtk-gui\PArticulo.MainWindow.cs" />
     <Compile Include="BaseDatos.cs" />
     <Compile Include="gtk-gui\PArticulo.BaseDatos.cs" />
