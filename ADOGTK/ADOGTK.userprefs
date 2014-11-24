@@ -1,0 +1,35 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ADOGTK/MainWindow.cs">
+    <Files>
+      <File FileName="ADOGTK/Program.cs" Line="13" Column="23" />
+      <File FileName="ADOGTK/MainWindow.cs" Line="35" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="ADOGTK" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="MainWindow.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../AD/PArticulo/PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
+    <Watch file="../AD/PArticulo/PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
+    <Watch file="../AD/PArticulo/PArticulo/Categoria.cs" line="9" offsetX="462" offsetY="144" expression="id" liveUpdate="False" />
+    <Watch file="../AD/PArticulo/PArticulo/MainWindow.cs" line="18" offsetX="350" offsetY="306" expression="baseDatos" liveUpdate="False" />
+    <Watch file="../AD/PArticulo/PArticulo/Tabla.cs" line="18" offsetX="84" offsetY="528" expression="valores[0].id" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>
