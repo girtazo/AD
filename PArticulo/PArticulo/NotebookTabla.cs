@@ -5,6 +5,8 @@ namespace PArticulo
 {
 	public class NotebookTabla : Notebook
 	{
+		private static int deletePages = 0;
+
 		public NotebookTabla ()
 		{
 		}
@@ -15,13 +17,10 @@ namespace PArticulo
 			etiqueta.Add (nombreEtiqueta);
 			etiqueta.Add (Btncerrar);
 			etiqueta.ShowAll ();
-			AppendPage (tabla, etiqueta);
+			int index = AppendPage(tabla, etiqueta);
 			Btncerrar.Clicked += delegate {
-				Console.WriteLine("cierra");
-				Widget widget = Btncerrar.Parent;
-				Widget widget1= Btncerrar.Parent.Parent;
-				Widget widget2 = Btncerrar.Parent.Parent.Parent;
-				this.Remove(this.Parent.Parent);
+				this.RemovePage(index-NotebookTabla.deletePages);
+				NotebookTabla.deletePages++;
 			};
 		}
 	}
