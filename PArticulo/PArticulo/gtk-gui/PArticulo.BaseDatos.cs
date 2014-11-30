@@ -38,11 +38,9 @@ namespace PArticulo
 			this.TablasAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Tablas");
 			w1.Add (this.TablasAction, null);
 			this.ArticuloAction = new global::Gtk.Action ("ArticuloAction", global::Mono.Unix.Catalog.GetString ("Articulo"), null, null);
-			this.ArticuloAction.Sensitive = false;
 			this.ArticuloAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Articulo");
 			w1.Add (this.ArticuloAction, null);
 			this.CategoriaAction = new global::Gtk.Action ("CategoriaAction", global::Mono.Unix.Catalog.GetString ("Categoria"), null, null);
-			this.CategoriaAction.Sensitive = false;
 			this.CategoriaAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Categoria");
 			w1.Add (this.CategoriaAction, null);
 			this.UIManager.InsertActionGroup (w1, 0);
@@ -78,7 +76,7 @@ namespace PArticulo
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 400;
+			this.DefaultWidth = 431;
 			this.DefaultHeight = 300;
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);

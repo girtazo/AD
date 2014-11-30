@@ -17,22 +17,34 @@ namespace PArticulo
 		private string servidor = "localhost";
 		public string Servidor {
 			get { return servidor;}
-			set { servidor = value; }
+			set { 
+				servidor = value; 
+				mysqlConnection = new MySqlConnection ("Data Source=" + servidor + ";User Id=" + usuario + ";Password=" + password + ";DataBase=" + baseDatos);
+			}
 		}
 		private string usuario = "root";
 		public string Usuario {
 			get { return usuario;}
-			set { usuario = value; }
+			set { 
+				usuario = value; 
+				mysqlConnection = new MySqlConnection ("Data Source=" + servidor + ";User Id=" + usuario + ";Password=" + password + ";DataBase=" + baseDatos);
+			}
 		}
 		private string password = "sistemas";
 		public string Password {
 			get { return password;}
-			set { password = value; }
+			set { 
+				password = value;
+				mysqlConnection = new MySqlConnection ("Data Source=" + servidor + ";User Id=" + usuario + ";Password=" + password + ";DataBase=" + baseDatos);
+			}
 		}
 		private string baseDatos = "dbprueba";
 		public string BaseDatos {
 			get { return baseDatos;}
-			set { baseDatos = value; }
+			set { 
+				baseDatos = value; 
+				mysqlConnection = new MySqlConnection ("Data Source=" + servidor + ";User Id=" + usuario + ";Password=" + password + ";DataBase=" + baseDatos);
+			}
 		}
 		private IDbConnection mysqlConnection;
 		public IDbConnection MysqlConnection {
