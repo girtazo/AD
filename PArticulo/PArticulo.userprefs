@@ -1,44 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/NotebookTabla.cs">
-    <Files>
-      <File FileName="PArticulo/MainWindow.cs" Line="23" Column="20" />
-      <File FileName="PArticulo/App.cs" Line="22" Column="27" />
-      <File FileName="PArticulo/BaseDatos.cs" Line="30" Column="46" />
-      <File FileName="PArticulo/NotebookTabla.cs" Line="15" Column="33" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/MainWindow.cs">
-    <Files>
-      <File FileName="PArticulo/NotebookTabla.cs" Line="18" Column="18" />
-      <File FileName="PArticulo/MainWindow.cs" Line="31" Column="8" />
->>>>>>> f68bab088a18f19f3039ca2a6ce1750c2695b788
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="PArticulo" expanded="True">
-<<<<<<< HEAD
-            <Node name="NotebookTabla.cs" selected="True" />
-=======
-            <Node name="MainWindow.cs" selected="True" />
->>>>>>> f68bab088a18f19f3039ca2a6ce1750c2695b788
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
-    <Watch file="PArticulo/BaseDatos.cs" line="21" offsetX="838" offsetY="360" expression="tabla" liveUpdate="False" />
-    <Watch file="PArticulo/Categoria.cs" line="9" offsetX="462" offsetY="144" expression="id" liveUpdate="False" />
-    <Watch file="PArticulo/MainWindow.cs" line="18" offsetX="350" offsetY="306" expression="baseDatos" liveUpdate="False" />
-    <Watch file="PArticulo/Tabla.cs" line="18" offsetX="84" offsetY="528" expression="valores[0].id" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

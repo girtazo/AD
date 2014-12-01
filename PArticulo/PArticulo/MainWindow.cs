@@ -17,11 +17,8 @@ namespace PArticulo
 			try {
 				App.Instance.MysqlConnection.Open();
 				BaseDatos baseDatos = new BaseDatos(this);
-
-
 				baseDatos.ShowAll();
 				this.HideAll();
-
 			} catch (MySqlException e) {
 				App.Instance.MysqlConnection.Close ();
 				MessageDialog error = new MessageDialog (
@@ -40,7 +37,6 @@ namespace PArticulo
 		}
 		protected void conecta (object sender, EventArgs e)
 		{
-
 			App.Instance.Usuario = entryUsuario.Text;
 			App.Instance.Password = entryPassword.Text;
 			obtenerConexion ();

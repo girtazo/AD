@@ -12,8 +12,8 @@ namespace PArticulo
 		private NotebookTabla contenedor;
 		private MainWindow login;
 		public Gtk.Action opcionArticulo;
-		public Gtk.Action opcionCategoria; 
-		private bool autoguardado; 
+		public Gtk.Action opcionCategoria;
+		private bool autoguardado;
 		public BaseDatos (MainWindow login = null) : base(Gtk.WindowType.Toplevel)
 		{
 			Build ();
@@ -27,15 +27,11 @@ namespace PArticulo
 			vbox1.Add (contenedor);
 			this.ConstruirTabla ("Articulo");
 			this.ConstruirTabla ("Categoria");
-
-
 		}
 		public void ConstruirTabla(string nombre){
-
 			this.tabla.Add( new Tabla (this.contenedor,nombre));
 			this.tablasAbiertas = tablasAbiertas + 1;
 		}
-
 		protected void TablaArticulo (object sender, EventArgs e)
 		{
 			this.ConstruirTabla ("Articulo");
@@ -48,7 +44,6 @@ namespace PArticulo
 			this.ConstruirTabla ("Categoria");
 			this.ShowAll ();
 		}
-
 		protected void OnDeleteEvent (object sender,DeleteEventArgs a){
 			this.HideAll ();
 			a.RetVal = true;

@@ -84,7 +84,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="PArticulo.BaseDatos" design-size="431 300">
+  <widget class="Gtk.Window" id="PArticulo.BaseDatos" design-size="400 300">
     <action-group name="Default">
       <action id="refreshAction">
         <property name="Type">Action</property>
@@ -121,12 +121,14 @@
       <action id="ArticuloAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Articulo</property>
+        <property name="Sensitive">False</property>
         <property name="ShortLabel" translatable="yes">Articulo</property>
         <signal name="Activated" handler="TablaArticulo" />
       </action>
       <action id="CategoriaAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Categoria</property>
+        <property name="Sensitive">False</property>
         <property name="ShortLabel" translatable="yes">Categoria</property>
         <signal name="Activated" handler="TablaCategoria" />
       </action>
