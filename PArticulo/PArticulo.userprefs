@@ -1,18 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../ADO/ADO/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/NotebookTabla.cs">
     <Files>
-      <File FileName="../../ADO/ADO/Program.cs" Line="11" Column="12" />
-      <File FileName="../../ADO/ADO/App.cs" Line="40" Column="42" />
+      <File FileName="PArticulo/MainWindow.cs" Line="23" Column="20" />
+      <File FileName="PArticulo/App.cs" Line="22" Column="27" />
+      <File FileName="PArticulo/BaseDatos.cs" Line="30" Column="46" />
+      <File FileName="PArticulo/NotebookTabla.cs" Line="15" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ADO" expanded="True" />
+          <Node name="PArticulo" expanded="True">
+            <Node name="NotebookTabla.cs" selected="True" />
+          </Node>
         </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />

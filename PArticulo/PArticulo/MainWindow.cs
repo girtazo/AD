@@ -17,6 +17,8 @@ namespace PArticulo
 			try {
 				App.Instance.MysqlConnection.Open();
 				BaseDatos baseDatos = new BaseDatos(this);
+
+
 				baseDatos.ShowAll();
 				this.HideAll();
 
