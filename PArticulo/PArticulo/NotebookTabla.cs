@@ -26,14 +26,13 @@ namespace PArticulo
 			int index = AppendPage(tabla, etiqueta);
 
 			Type tipo = WindowBaseDatos.GetType();
+			FieldInfo[] marcados = tipo.GetFields ();
 
-			//PropertyInfo[] propiedades = tipo.GetProperties ();
-			MenuOpcion[] atributos = (MenuOpcion[])Attribute.GetCustomAttributes(tipo,typeof(MenuOpcion));
 
-			foreach (Modules propiedad in this.get){
-				if (propiedad.Name.Substring(0,6) == "opcion") {
-					if(nombre == propiedad.Name.Substring(6)){
-						Gtk.Action opcion = (Gtk.Action)propiedad.GetValue (WindowBaseDatos,null);
+			foreach (FieldInfo marcado in marcados){
+				if (marcado.IsDefined (typeof(MenuOpcion), true)) {
+					if(nombre == marcado.Name){
+						Gtk.Action opcion = (Gtk.Action)marcado.GetValue (WindowBaseDatos);
 						opcion.Sensitive = false;
 					}
 				}
@@ -47,10 +46,13 @@ namespace PArticulo
 					Widget[] children = etiqueta.Children;
 					nombreEtiqueta = (Label) children[0];
 					if(nombreEtiqueta.LabelProp == nombre){
-						if (nombre == "Articulo") {
-							WindowBaseDatos.opcionArticulo.Sensitive = true;
-						} else {
-							WindowBaseDatos.opcionCategoria.Sensitive = true;
+						foreach (FieldInfo marcado in marcados){
+							if (marcado.IsDefined (typeof(MenuOpcion), true)) {
+								if(nombre == marcado.Name){
+									Gtk.Action opcion = (Gtk.Action)marcado.GetValue (WindowBaseDatos);
+									opcion.Sensitive = true;
+								}
+							}
 						}
 						this.RemovePage(numero);
 						break;
