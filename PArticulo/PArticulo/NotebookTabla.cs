@@ -2,6 +2,8 @@ using System;
 using System.Data;
 using Gtk;
 using System.Collections.Generic;
+using System.Reflection;
+
 namespace PArticulo
 {
 	public class NotebookTabla : Notebook
@@ -22,11 +24,21 @@ namespace PArticulo
 			etiqueta.ShowAll ();
 
 			int index = AppendPage(tabla, etiqueta);
-			if(nombre == "Articulo"){
-				WindowBaseDatos.opcionArticulo.Sensitive = false;
-			} else {
-				WindowBaseDatos.opcionCategoria.Sensitive = false;
+
+			Type tipo = WindowBaseDatos.GetType();
+
+			//PropertyInfo[] propiedades = tipo.GetProperties ();
+			MenuOpcion[] atributos = (MenuOpcion[])Attribute.GetCustomAttributes(tipo,typeof(MenuOpcion));
+
+			foreach (Modules propiedad in this.get){
+				if (propiedad.Name.Substring(0,6) == "opcion") {
+					if(nombre == propiedad.Name.Substring(6)){
+						Gtk.Action opcion = (Gtk.Action)propiedad.GetValue (WindowBaseDatos,null);
+						opcion.Sensitive = false;
+					}
+				}
 			}
+
 
 			Btncerrar.Clicked += delegate(object sender, EventArgs e) {
 

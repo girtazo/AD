@@ -11,7 +11,9 @@ namespace PArticulo
 		private int tablasAbiertas;
 		private NotebookTabla contenedor;
 		private MainWindow login;
+		[MenuOpcion]
 		public Gtk.Action opcionArticulo;
+		[MenuOpcion]
 		public Gtk.Action opcionCategoria;
 		private bool autoguardado;
 		public BaseDatos (MainWindow login = null) : base(Gtk.WindowType.Toplevel)
