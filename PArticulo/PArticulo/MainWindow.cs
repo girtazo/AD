@@ -23,7 +23,7 @@ namespace PArticulo
 				this.HideAll();
 
 			} catch (MySqlException e) {
-				Console.WriteLine("Usuario:"+App.Instance.Usuario+"Password: "+App.Instance.Password );
+				App.Instance.MysqlConnection.Close ();
 				MessageDialog error = new MessageDialog (
 					this,
 					DialogFlags.Modal,
@@ -32,20 +32,17 @@ namespace PArticulo
 					e.Message
 					);
 				error.Title = "Imposible Conexion";
-				Console.WriteLine (ResponseType.Close);
 				error.Run ();
-				Console.ReadLine ();
 				if ( ResponseType.Close.ToString() == "Close" ) {
-					Console.WriteLine ();
 					error.Destroy ();
 				}
 			}
 		}
 		protected void conecta (object sender, EventArgs e)
 		{
+
 			App.Instance.Usuario = entryUsuario.Text;
 			App.Instance.Password = entryPassword.Text;
-
 			obtenerConexion ();
 		}
 		protected void OnDeleteEvent (object sender,DeleteEventArgs a){
