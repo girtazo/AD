@@ -96,10 +96,10 @@
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-add</property>
       </action>
-      <action id="undeleteAction">
+      <action id="btnBorrar">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
-        <property name="StockId">gtk-undelete</property>
+        <property name="StockId">gtk-delete</property>
       </action>
       <action id="saveAction">
         <property name="Type">Action</property>
@@ -166,7 +166,7 @@
             <node name="toolbar1" type="Toolbar">
               <node type="Toolitem" action="refreshAction" />
               <node type="Toolitem" action="addAction" />
-              <node type="Toolitem" action="undeleteAction" />
+              <node type="Toolitem" action="btnBorrar" />
               <node type="Toolitem" action="saveAction" />
               <node type="Toolitem" action="saveAsAction" />
             </node>

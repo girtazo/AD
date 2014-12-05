@@ -7,7 +7,7 @@ namespace PArticulo
 		private global::Gtk.UIManager UIManager;
 		private global::Gtk.Action refreshAction;
 		private global::Gtk.Action addAction;
-		private global::Gtk.Action undeleteAction;
+		private global::Gtk.Action btnBorrar;
 		private global::Gtk.Action saveAction;
 		private global::Gtk.ToggleAction saveAsAction;
 		private global::Gtk.Action TablasAction;
@@ -27,8 +27,8 @@ namespace PArticulo
 			w1.Add (this.refreshAction, null);
 			this.addAction = new global::Gtk.Action ("addAction", null, null, "gtk-add");
 			w1.Add (this.addAction, null);
-			this.undeleteAction = new global::Gtk.Action ("undeleteAction", null, null, "gtk-undelete");
-			w1.Add (this.undeleteAction, null);
+			this.btnBorrar = new global::Gtk.Action ("btnBorrar", null, null, "gtk-delete");
+			w1.Add (this.btnBorrar, null);
 			this.saveAction = new global::Gtk.Action ("saveAction", null, null, "gtk-save");
 			w1.Add (this.saveAction, null);
 			this.saveAsAction = new global::Gtk.ToggleAction ("saveAsAction", null, null, "gtk-save-as");
@@ -65,7 +65,7 @@ namespace PArticulo
 			w2.Expand = false;
 			w2.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='refreshAction' action='refreshAction'/><toolitem name='addAction' action='addAction'/><toolitem name='undeleteAction' action='undeleteAction'/><toolitem name='saveAction' action='saveAction'/><toolitem name='saveAsAction' action='saveAsAction'/></toolbar></ui>");
+			this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='refreshAction' action='refreshAction'/><toolitem name='addAction' action='addAction'/><toolitem name='btnBorrar' action='btnBorrar'/><toolitem name='saveAction' action='saveAction'/><toolitem name='saveAsAction' action='saveAsAction'/></toolbar></ui>");
 			this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 			this.toolbar1.Name = "toolbar1";
 			this.toolbar1.ShowArrow = false;
