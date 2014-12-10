@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,8 +25,9 @@ public class gestorBasedatos {
 		int opcion = Integer.parseInt(scanner.nextLine());
 		switch (opcion) {
 		case 1:
+			
 			ArrayList<Campo> campos = tabla.getCampos();
-			ArrayList<Object> valores = tabla.listar();
+			ArrayList<Hashtable> valores = tabla.listar();
 			int c=0;
 			for (Object tupla :  valores) {
 				List<String> valor = (List<String>) tupla;

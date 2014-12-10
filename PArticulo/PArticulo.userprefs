@@ -1,25 +1,27 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/NotebookTabla.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PArticulo/BDTabla.cs">
     <Files>
-      <File FileName="PArticulo/MainWindow.cs" Line="20" Column="25" />
-      <File FileName="PArticulo/NotebookTabla.cs" Line="28" Column="13" />
-      <File FileName="PArticulo/BaseDatos.cs" Line="13" Column="25" />
-      <File FileName="../PReflection/PReflection/MainWindow.cs" Line="32" Column="5" />
-      <File FileName="PArticulo/MenuOpcion.cs" Line="12" Column="22" />
+      <File FileName="PArticulo/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="PArticulo/NotebookTabla.cs" Line="1" Column="1" />
+      <File FileName="PArticulo/BaseDatos.cs" Line="1" Column="1" />
+      <File FileName="../PReflection/PReflection/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="PArticulo/MenuOpcion.cs" Line="1" Column="1" />
       <File FileName="../PReflection/PReflection/EntityAttribute.cs" Line="1" Column="1" />
-      <File FileName="../PReflection/PReflection/NotBlankAttribute.cs" Line="5" Column="54" />
-      <File FileName="../PReflection/PReflection/ErrorInfo.cs" Line="9" Column="28" />
+      <File FileName="../PReflection/PReflection/NotBlankAttribute.cs" Line="1" Column="1" />
+      <File FileName="../PReflection/PReflection/ErrorInfo.cs" Line="1" Column="1" />
       <File FileName="../PReflection/PReflection/ValidationAttribute.cs" Line="1" Column="1" />
-      <File FileName="../PReflection/PReflection/Validator.cs" Line="8" Column="33" />
-      <File FileName="../PReflection/PReflection/Categoria.cs" Line="7" Column="3" />
-      <File FileName="PArticulo/App.cs" Line="35" Column="13" />
+      <File FileName="../PReflection/PReflection/Validator.cs" Line="1" Column="1" />
+      <File FileName="../PReflection/PReflection/Categoria.cs" Line="1" Column="1" />
+      <File FileName="PArticulo/App.cs" Line="1" Column="1" />
+      <File FileName="PArticulo/BDTabla.cs" Line="21" Column="5" />
+      <File FileName="PArticulo/Campo.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="PArticulo" expanded="True">
-            <Node name="NotebookTabla.cs" selected="True" />
+            <Node name="BDTabla.cs" selected="True" />
           </Node>
         </State>
       </Pad>

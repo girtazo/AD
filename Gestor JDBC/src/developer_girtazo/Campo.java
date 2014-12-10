@@ -1,14 +1,14 @@
 package developer_girtazo;
+import java.sql.Types;
 
-import java.lang.reflect.Type;
 
 public class Campo
 {
 	public String nombre;
-	public Type tipo;
-	public Campo (String nombre/*,Type tipo*/)
+	public int tipo;
+	public Campo (String nombre,int tipo)
 	{
 		this.nombre = nombre;
-		//this.tipo = tipo;
+		this.tipo = tipo;
 	}
 }
