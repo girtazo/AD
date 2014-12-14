@@ -1,14 +1,24 @@
 package developer_girtazo;
 
+import java.io.ObjectInputStream.GetField;
+import java.lang.reflect.GenericArrayType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
+
+import org.omg.CORBA.Any;
+import org.omg.CORBA.DATA_CONVERSION;
+import org.omg.CORBA.TCKind;
+import org.omg.CORBA.TypeCode;
+import org.omg.CORBA.TypeCodePackage.BadKind;
+import org.omg.CORBA.TypeCodePackage.Bounds;
 
 public class gestorBasedatos {
 	private static Scanner scanner = new Scanner(System.in);
@@ -44,7 +54,27 @@ public class gestorBasedatos {
 					System.out.println();
 			}
 			break;
-
+		
+		case 2:
+			
+			campos = tabla.getCampos();
+			Hashtable<String, Object> tupla = new Hashtable<String, Object>();
+			int nCampo = 0;
+			System.out.println("----------------");
+			
+			// Visualizacion de Campos Tabla
+			for (Campo campo : campos) {
+				if(campo.nombre.toString() != "id"){
+					System.out.print("Introduce lo que desea insertar en "+campo.nombre+":");
+					tupla.put( campo.nombre, (Object) scanner.nextLine());
+				}
+				
+			}
+			
+			tabla.insertar(tupla);
+			
+			break;
+			
 		default:
 			break;
 		}
