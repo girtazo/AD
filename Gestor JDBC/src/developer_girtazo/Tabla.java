@@ -18,40 +18,63 @@ public class Tabla {
 	public String nombre;
 	
 	public Tabla(String nombre) throws SQLException{
+		
 		this.nombre = nombre;
 		this.campos = new ArrayList<Campo>();
 		this.conexion = App.getInstance().getMysqlConnection();
-		Lector = ((Statement)conexion.createStatement()).executeQuery("Select * FROM "+this.nombre+" LIMIT 1");
-		for (int campo=0; campo < this.Lector.getRow(); campo++) {
-			this.campos.add( new Campo (
-					this.Lector.getMetaData().getColumnLabel(campo),
-					this.Lector.getMetaData().getColumnType(campo)
+		
+		Lector = ((Statement)conexion.createStatement()).executeQuery("Select * FROM "+nombre+" LIMIT 1");
+		
+		for (int campo=1; campo <= Lector.getMetaData().getColumnCount(); campo++) {
+			
+			campos.add(new Campo (
+					Lector.getMetaData().getColumnLabel(campo),
+					Lector.getType()
 					)
 			);
+			
 		}
+		
 		Lector.close();
+		
 	}
 	
 	public ArrayList<Campo> getCampos() {
+		
 		return this.campos;
+		
 	}
 	
 	public ArrayList<Hashtable> listar() throws SQLException {
-		this.valores = new ArrayList<Hashtable>();
-		int c = 0;
+		
+		valores = new ArrayList<Hashtable>();
+		
 		Lector = ((Statement)conexion.createStatement()).executeQuery("Select * FROM "+nombre);
+		
 		while (Lector.next()) {
+			
 			Hashtable<String, Object> tupla = new Hashtable<String, Object>();
+			
 			for(int campo = 1;campo<=Lector.getMetaData().getColumnCount();campo++){
-					tupla.put(this.campos.get(campo).nombre, Lector.getObject(campo).getClass());
+					
+				tupla.put(
+						campos.get(campo-1).nombre, 
+						Lector.getObject(campo)
+						);
 			}
-			this.valores.add(tupla);
+			
+			valores.add(tupla);
 		}
+		
 		Lector.close();
+		
 		return this.valores;
 	}
 	
-	public void insertar(ArrayList tupla){
+	public void insertar(Hashtable<String,Object> tupla){
+		
+		
 		
 	}
+	
 }

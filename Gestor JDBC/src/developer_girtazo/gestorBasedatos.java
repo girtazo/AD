@@ -14,7 +14,6 @@ public class gestorBasedatos {
 	private static Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) throws SQLException {
 		Tabla tabla = new Tabla("categoria");
-		// TODO Auto-generated method stub
 		System.out.println("----------------");
 		System.out.println("1 - Listar");
 		System.out.println("2 - Insertar");
@@ -28,17 +27,21 @@ public class gestorBasedatos {
 			
 			ArrayList<Campo> campos = tabla.getCampos();
 			ArrayList<Hashtable> valores = tabla.listar();
-			int c=0;
+			
+			// Visualizacion de Campos Tabla
+			for (Campo campo : campos) {
+				System.out.print(campo.nombre+"	");
+			}
+			
+			System.out.println();
+			
+			// Visualizacion de Valores Tabla
 			for (Object tupla :  valores) {
-				List<String> valor = (List<String>) tupla;
-				if(c == campos.size()){
-					System.out.print(valor.get(c)+"	");
-					c++;
-				} else {
-					System.out.println(valor.get(c));
-					c=0;
-				}
-				
+				Hashtable<String, Object> valor = (Hashtable<String, Object>) tupla;
+					for (Campo campo : campos) {
+						System.out.print(valor.get(campo.nombre)+"	");
+					}
+					System.out.println();
 			}
 			break;
 
