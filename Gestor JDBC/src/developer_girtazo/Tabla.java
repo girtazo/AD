@@ -1,6 +1,7 @@
 package developer_girtazo;
 
 import java.sql.Connection;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.sql.PreparedStatement;
@@ -82,10 +83,10 @@ public class Tabla {
 		int nCampo = 0;
 		
 		Enumeration<String> campo = tupla.keys();
-		String valor;
+		
 		while(campo.hasMoreElements()){
 			
-			if( tupla.size() > nCampo ){
+			if( tupla.size() > nCampo+1 ){
 				
 				sentencia += campo.nextElement()+", ";
 				
@@ -94,15 +95,77 @@ public class Tabla {
 				sentencia += campo.nextElement()+") ";
 				
 			}
+			nCampo++;
 		}	
 		
-		nCampo++;
 		
 		sentencia += "VALUES (";
 		
 		
-		sentenciaSQL = conexion.prepareStatement("");
+		for(int valor = 0; valor < tupla.size(); valor++){
+			
+			if( tupla.size() > valor+1 ){
+				
+				sentencia += "?, ";
+				
+			} else {
+				
+				sentencia += "?) ";
+				
+			}
+		}
 		
+		sentenciaSQL = conexion.prepareStatement(sentencia);
+		
+		Object[] valor = tupla.values().toArray();
+		
+		for ( nCampo = 0; nCampo < tupla.size(); nCampo++) {
+			
+			sentenciaSQL.setObject(nCampo+1, valor[nCampo]);
+			
+		}
+		
+		sentenciaSQL.executeUpdate();
+		sentenciaSQL.close();
+	}
+	
+	public void modificar(Hashtable<String,Object> tupla,String campo, Object campoValor) throws SQLException{
+		
+		String sentencia = "UPDATE " + nombre + " SET ";
+		
+		int nCampo = 0;
+		
+		Enumeration<String> campos = tupla.keys();
+		
+		while(campos.hasMoreElements()){
+			
+			if( tupla.size() > nCampo+1 ){
+				
+				sentencia += campos.nextElement()+"=?, ";
+				
+			} else {
+				
+				sentencia += campos.nextElement()+"=? ";
+				
+			}
+			nCampo++;
+		}	
+		
+		
+		sentencia += "WHERE "+campo+"="+campoValor;
+		
+		sentenciaSQL = conexion.prepareStatement(sentencia);
+		
+		Object[] valor = tupla.values().toArray();
+		
+		for ( nCampo = 0; nCampo < tupla.size(); nCampo++) {
+			
+			sentenciaSQL.setObject(nCampo+1, valor[nCampo]);
+			
+		}
+		
+		sentenciaSQL.executeUpdate();
+		sentenciaSQL.close();
 	}
 	
 }

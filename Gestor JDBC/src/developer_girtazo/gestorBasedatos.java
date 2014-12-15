@@ -22,61 +22,109 @@ import org.omg.CORBA.TypeCodePackage.Bounds;
 
 public class gestorBasedatos {
 	private static Scanner scanner = new Scanner(System.in);
+	private static Tabla tabla;
 	public static void main(String[] args) throws SQLException {
-		Tabla tabla = new Tabla("categoria");
-		System.out.println("----------------");
-		System.out.println("1 - Listar");
-		System.out.println("2 - Insertar");
-		System.out.println("3 - Modificar");
-		System.out.println("4 - Borrar");
-		System.out.println("----------------");
-		System.out.print("Elige opcion:");
-		int opcion = Integer.parseInt(scanner.nextLine());
-		switch (opcion) {
-		case 1:
-			
-			ArrayList<Campo> campos = tabla.getCampos();
-			ArrayList<Hashtable> valores = tabla.listar();
-			
-			// Visualizacion de Campos Tabla
-			for (Campo campo : campos) {
-				System.out.print(campo.nombre+"	");
-			}
-			
-			System.out.println();
-			
-			// Visualizacion de Valores Tabla
-			for (Object tupla :  valores) {
-				Hashtable<String, Object> valor = (Hashtable<String, Object>) tupla;
-					for (Campo campo : campos) {
-						System.out.print(valor.get(campo.nombre)+"	");
-					}
-					System.out.println();
-			}
-			break;
 		
-		case 2:
+		tabla = new Tabla("categoria");
+		int opcion =1;
+		
+		while(opcion != 0){
 			
-			campos = tabla.getCampos();
-			Hashtable<String, Object> tupla = new Hashtable<String, Object>();
-			int nCampo = 0;
 			System.out.println("----------------");
+			System.out.println("0 - Salir");
+			System.out.println("1 - Listar");
+			System.out.println("2 - Insertar");
+			System.out.println("3 - Modificar");
+			System.out.println("4 - Borrar");
+			System.out.println("----------------");
+			System.out.print("Elige opcion:");
+			opcion = Integer.parseInt(scanner.nextLine());
 			
-			// Visualizacion de Campos Tabla
-			for (Campo campo : campos) {
-				if(campo.nombre.toString() != "id"){
-					System.out.print("Introduce lo que desea insertar en "+campo.nombre+":");
-					tupla.put( campo.nombre, (Object) scanner.nextLine());
-				}
+			switch (opcion) {
+			case 1:
 				
+				listar();
+				break;
+			
+			case 2:
+				
+				insertar();
+				listar();
+				break;
+				
+			case 3:
+				modificar();
+				break;
+			
+			
 			}
 			
-			tabla.insertar(tupla);
-			
-			break;
-			
-		default:
-			break;
 		}
+		
+	}
+	
+	public static void listar() throws SQLException{
+		
+		ArrayList<Campo> campos = tabla.getCampos();
+		ArrayList<Hashtable> valores = tabla.listar();
+		
+		// Visualizacion de Campos Tabla
+		for (Campo campo : campos) {
+			System.out.print(campo.nombre+"	");
+		}
+		
+		System.out.println();
+		
+		// Visualizacion de Valores Tabla
+		for (Object tupla :  valores) {
+			Hashtable<String, Object> valor = (Hashtable<String, Object>) tupla;
+				for (Campo campo : campos) {
+					System.out.print(valor.get(campo.nombre)+"	");
+				}
+				System.out.println();
+		}
+		
+	}
+	
+	public static void insertar() throws SQLException{
+		
+		ArrayList<Campo> campos = tabla.getCampos();
+		Hashtable<String, Object> tupla = new Hashtable<String, Object>();
+
+		// Visualizacion de Campos Tabla
+		for (Campo campo : campos) {
+			if( !campo.nombre.contentEquals("id") ){
+				System.out.print("Introduce lo que desea insertar en "+campo.nombre+":");
+				tupla.put( campo.nombre, (Object) scanner.nextLine());
+			}
+			
+		}
+		
+		tabla.insertar(tupla);
+	}
+
+	public static void modificar() throws SQLException{
+		
+		ArrayList<Campo> campos = tabla.getCampos();
+		Hashtable<String, Object> tupla = new Hashtable<String, Object>();
+		
+		
+		// Visualizacion de Tabla
+		listar();
+		
+		System.out.print("Elige el registro a modificar:");
+		int id= Integer.parseInt(scanner.nextLine());
+		
+		for (Campo campo : campos) {
+			
+			if( !campo.nombre.contentEquals("id") ){
+				System.out.print("Introduce lo que desea insertar en "+campo.nombre+":");
+				tupla.put( campo.nombre, (Object) scanner.nextLine());
+			}
+			
+		}
+		
+		tabla.modificar(tupla,"id",id);
+		
 	}
 }
