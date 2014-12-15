@@ -56,7 +56,10 @@ public class gestorBasedatos {
 				modificar();
 				break;
 			
-			
+			case 4:
+				borrar();
+				break;
+				
 			}
 			
 		}
@@ -107,6 +110,7 @@ public class gestorBasedatos {
 		
 		ArrayList<Campo> campos = tabla.getCampos();
 		Hashtable<String, Object> tupla = new Hashtable<String, Object>();
+		Hashtable<String, Object> select = new Hashtable<String, Object>();
 		
 		
 		// Visualizacion de Tabla
@@ -114,6 +118,7 @@ public class gestorBasedatos {
 		
 		System.out.print("Elige el registro a modificar:");
 		int id= Integer.parseInt(scanner.nextLine());
+		select.put("id",id);
 		
 		for (Campo campo : campos) {
 			
@@ -124,7 +129,28 @@ public class gestorBasedatos {
 			
 		}
 		
-		tabla.modificar(tupla,"id",id);
+		
+		tabla.modificar( tupla, select );
+		
+	}
+
+	public static void borrar() throws SQLException{
+		
+		ArrayList<Campo> campos = tabla.getCampos();
+		Hashtable<String, Object> tupla = new Hashtable<String, Object>();
+		
+		
+		// Visualizacion de Tabla
+		listar();
+		
+		System.out.print("Elige el registro a modificar:");
+		int id= Integer.parseInt(scanner.nextLine());
+		
+		tupla.put("id", id);
+		
+		tabla.borrar(tupla);
+		
+		listar();
 		
 	}
 }
