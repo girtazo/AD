@@ -195,6 +195,7 @@ public class Tabla {
 		sentenciaSQL.close();
 	}
 	
+	
 	public void borrar(Hashtable<String,Object> tupla) throws SQLException{
 		
 		String sentencia = "DELETE FROM " + nombre + " WHERE ";
