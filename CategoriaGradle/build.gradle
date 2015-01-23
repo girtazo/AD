@@ -12,3 +12,5 @@ dependencies {
     compile 'mysql:mysql-connector-java:5.1.28'
     compile 'org.hibernate:hibernate-entitymanager:4.3.7.Final'
 }
+
+task wrapper (type:Wrapper){}

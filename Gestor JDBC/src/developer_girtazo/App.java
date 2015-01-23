@@ -15,7 +15,7 @@ public class App {
 		return instance;
 	}
 	
-	private String servidor = "localhost";
+	private String servidor = "192.168.24.214";
 	public String getServidor (){
 		return servidor;
 	}
