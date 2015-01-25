@@ -1,0 +1,37 @@
+//PTreeView
+
+Build ();
+
+//ERROR
+//treeView.AppendColumn ("Precio", new CellRendererText (), "text", 0);
+//ListStore listStore = new ListStore (typeof(decimal));
+//listStore.AppendValues (new decimal(1.2));
+
+//OPCION 1
+treeView.AppendColumn ("Precio", new CellRendererText (), "text", 0);
+ListStore listStore = new ListStore (typeof(string));
+object valuePrecio = new decimal (1.2).ToString ();
+listStore.AppendValues (valuePrecio);
+
+//OPCION 2
+treeView.AppendColumn ("Precio", new CellRendererText (), 
+	new TreeCellDataFunc (delegate (TreeViewColumn ...){
+		CellRendererText cellRendererText = (CellRendererText)cell;
+		object value = tree_model.GetValue (iter, 0);
+		CellRendererText.Text = value.ToString ();
+		
+		
+	})	
+);
+ListStore listStore = new ListStore (typeof(decimal));
+object valuePrecio = new decimal (1.2);
+listStore.AppendValues (valuePrecio);
+
+treeView.Model = listStore;
+
+
+
+//Retardo de codigo c#
+using System.Threading;
+
+Thread.Sleep(tiempo);

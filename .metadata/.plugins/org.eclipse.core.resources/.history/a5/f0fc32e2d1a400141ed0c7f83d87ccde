@@ -1,0 +1,23 @@
+package hibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Gestor {
+	
+	private static EntityManagerFactory entityManagerFactory;
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public Gestor(){
+		
+	}
+	public void listarCategoria(){
+		
+	}
+
+}

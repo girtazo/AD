@@ -1,0 +1,35 @@
+Descargas externas:
+	bitnami-lampstack-5.4.32-0-linux-x64-installer.run
+
+Repositorios externos (sudo apt-add-repository):
+	(oracle-java7-installer) ppa:webupd8team/java
+
+Paquetes y programas instalados (sudo apt-get install):
+	gnome-session-flashback (Escritorio basico)
+
+	oracle-java7-installer (jdk)
+
+	monodevelop
+	monodevelop-nunit
+	monodoc-nunit-manual
+	monodevelop-versioncontrol
+	monodoc-gtk2.0-manual
+	monodoc-mysql-manual
+	monodoc-browser
+	libmysql-cil-dev
+	libmysql6.4-cil
+
+	bitnami-lampstack-5.4.32-0-linux-x64-installer.run (externo)
+
+	git
+
+Otros comandos:
+	***GIT***
+		git clone [URL].git [Destino/ ]
+		git status (Estado)
+		git pull (Actualizar Local/Bajar)
+		git push (Actualizar Nube/Subir)
+		git add [Archivo/.] (Incluir archivo)
+		git commit -m "[Mensaje]" (Commit y titulo)
+		git config --global user.name "[Usuario]"
+		git config --global user.email [Email]
