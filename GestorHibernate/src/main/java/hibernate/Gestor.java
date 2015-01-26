@@ -95,31 +95,52 @@ public class Gestor {
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		int id= scanner.nextInt();
-		Categoria categoria = new Categoria();
+		System.out.print("id del registro a modificar:");
+		Long id= scanner.nextLong();
 		
-		categoria=entityManager.find(Categoria.class, id);
+		Categoria categoria=entityManager.find(Categoria.class, id);
 		
 		System.out.print("Nombre:");
-		categoria.setNombre(scanner.nextLine());
+		String nombre = scanner.nextLine();
+	
+		categoria.setNombre(nombre);
 		
 		entityManager.merge(categoria);
-		
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
-
+	
+	public void modificarArticulo(){
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		System.out.print("id del registro a modificar:");
+		Long id= scanner.nextLong();
+		
+		Articulo articulo=entityManager.find(Articulo.class, id);
+		
+		System.out.print("Nombre:");
+		String nombre = scanner.nextLine();
+	
+		articulo.setNombre(nombre);
+		
+		entityManager.merge(articulo);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
 	public void borrarCategoria(){
 		
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		int id= scanner.nextInt();
-		Categoria categoria = new Categoria();
+		System.out.print("id del registro a borrar:");
+		Long id= scanner.nextLong();
 		
-		categoria=entityManager.find(Categoria.class, id);
+		Categoria categoria=entityManager.find(Categoria.class, id);
 		
-		
+		entityManager.remove(categoria);
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
@@ -129,12 +150,12 @@ public class Gestor {
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		int id= scanner.nextInt();
-		Articulo articulo = new Articulo();
+		System.out.print("id del registro a borrar:");
+		Long id= scanner.nextLong();
 		
-		articulo=entityManager.find(Articulo.class, id);
+		Articulo articulo=entityManager.find(Articulo.class, id);
 		
-		
+		entityManager.remove(articulo);
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
@@ -161,7 +182,7 @@ public class Gestor {
 			System.out.println("----------------");
 			System.out.print("Elige opcion:");
 			
-			opcion = Integer.parseInt(scanner.nextLine());
+			opcion = scanner.nextInt();
 			
 			switch (opcion) {
 			case 1:
@@ -178,6 +199,7 @@ public class Gestor {
 			case 3:
 				gestor.listarCategoria();
 				gestor.modificarCategoria();
+				gestor.listarCategoria();
 				break;
 			
 			case 4:
@@ -187,9 +209,27 @@ public class Gestor {
 				break;
 			
 			case 5:
+				
+				gestor.listarArticulo();
+				break;
+			
+			case 6:
+				
+				gestor.insertarArticulo();
 				gestor.listarArticulo();
 				break;
 				
+			case 7:
+				gestor.listarArticulo();
+				gestor.modificarArticulo();
+				gestor.listarArticulo();
+				break;
+			
+			case 8:
+				gestor.listarArticulo();
+				gestor.borrarArticulo();
+				gestor.listarArticulo();
+				break;
 			}
 			
 		}
