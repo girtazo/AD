@@ -38,7 +38,7 @@ public class Articulo {
 		return categoria;
     }
 
-    private void setCategoria(Long categoria) {
+    public void setCategoria(Long categoria) {
 		this.categoria = categoria;
     }
     
@@ -46,7 +46,7 @@ public class Articulo {
 		return precio;
     }
 
-    private void setPrecio(BigDecimal precio) {
+    public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
     }
 }

@@ -1,10 +1,12 @@
 package hibernate;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
 import java.util.Scanner;
 
 import hibernate.Categoria;
@@ -44,7 +46,7 @@ public class Gestor {
 		
 		List<Articulo> articulos = entityManager.createQuery("FROM Articulo", Articulo.class).getResultList();
 		for (Articulo articulo : articulos)
-			System.out.printf("id: %d \t nombre=%s\n", articulo.getId(), articulo.getNombre());
+			System.out.printf("id: %d \t nombre=%s \t categoria=%d \t precio=%d\n", articulo.getId(), articulo.getNombre(),articulo.getCategoria(),articulo.getPrecio());
 		
 		entityManager.getTransaction().commit();
 		
@@ -72,10 +74,66 @@ public class Gestor {
 		entityManager.getTransaction().begin();
 		
 		Articulo articulo = new Articulo();
-		System.out.print("Nombre:");
 		
+		System.out.print("Nombre:");
 		articulo.setNombre(scanner.nextLine());
+		
+		System.out.print("Categoria:");
+		articulo.setCategoria(scanner.nextLong());
+		
+		System.out.print("Precio:");
+		articulo.setPrecio( scanner.nextBigDecimal());
+		
 		entityManager.persist(articulo);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	public void modificarCategoria(){
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		int id= scanner.nextInt();
+		Categoria categoria = new Categoria();
+		
+		categoria=entityManager.find(Categoria.class, id);
+		
+		System.out.print("Nombre:");
+		categoria.setNombre(scanner.nextLine());
+		
+		entityManager.merge(categoria);
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+
+	public void borrarCategoria(){
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		int id= scanner.nextInt();
+		Categoria categoria = new Categoria();
+		
+		categoria=entityManager.find(Categoria.class, id);
+		
+		
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	public void borrarArticulo(){
+		
+		entityManager = entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		
+		int id= scanner.nextInt();
+		Articulo articulo = new Articulo();
+		
+		articulo=entityManager.find(Articulo.class, id);
+		
 		
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -118,11 +176,14 @@ public class Gestor {
 				break;
 				
 			case 3:
-				
+				gestor.listarCategoria();
+				gestor.modificarCategoria();
 				break;
 			
 			case 4:
-				
+				gestor.listarCategoria();
+				gestor.borrarCategoria();
+				gestor.listarCategoria();
 				break;
 			
 			case 5:
